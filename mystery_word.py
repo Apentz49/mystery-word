@@ -80,7 +80,7 @@ def mystery_word_game(the_mystery_word):
     game_mystery_word = "_ " * len(the_mystery_word)
     print(" ".join(game_mystery_word))
 
-    while guesses_remaining > (0):
+    while guesses_remaining > 0:
         guess = input("Please guess a letter: ").lower()
 
         if guess not in valid_guesses or guess == int:
