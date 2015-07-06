@@ -80,11 +80,10 @@ def mystery_word_game(the_mystery_word):
     while guesses_remaining > (0):
         guess = input("Please guess a letter: ").lower()
 
-        # if guess not in valid_guesses or len(guess) != 1:
-        #
-        #     print("That was not a valid guess. Please try again. ")
+        if guess not in valid_guesses or guess == int:
+            print("That is not a valid guess. Please try again: ")
 
-        if guess not in guessed:
+        elif guess not in guessed:
             guessed += guess
             user_guessed_word = " ".join(letter if letter in guessed else "_" for letter in the_mystery_word)
             # If the guessed letter is in the mystery word add it or if not continue fill blanks with "_"
@@ -100,8 +99,6 @@ def mystery_word_game(the_mystery_word):
                     guesses_remaining -= 1
                     print("Sorry, " + guess + " is not in your mystery word.")
                     print(guesses_remaining)
-
-
 
         elif guess in guessed:
             print("You have already guessed that letter. Please try again.")
