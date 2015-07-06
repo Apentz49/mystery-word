@@ -73,6 +73,7 @@ def mystery_word_game(the_mystery_word):
                      'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
     mystery_word_length = len(the_mystery_word)
+    print("Your Mystery word has {} characters in it.".format(mystery_word_length))
 
     game_mystery_word = "_ " * len(the_mystery_word)
     print(" ".join(game_mystery_word))
@@ -105,7 +106,7 @@ def mystery_word_game(the_mystery_word):
                 elif letter not in the_mystery_word:
                     guesses_remaining -= 1
                     print("Sorry, " + guess + " is not in your mystery word.")
-                    print(guesses_remaining)
+                    print("You have {} guesses remaining".format(guesses_remaining))
 
         elif guess in guessed:
             print("You have already guessed that letter. Please try again.")
