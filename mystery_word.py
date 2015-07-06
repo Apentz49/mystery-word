@@ -67,46 +67,47 @@ def game_mode():
 
 def mystery_word_game(the_mystery_word):
     # This function is running the game
-    guessed = ()
-    guesses_remaining = 8
+    guessed = ""
+    guesses_remaining = int(8)
     valid_guesses = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n',
                      'o' 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
     mystery_word_length = len(the_mystery_word)
-    print("Your mystery word is {} letters long. GOOD LUCK!").format(mystery_word_length)
 
-    game_mystery_word = "_" * len(the_mystery_word)
+    game_mystery_word = "_ " * len(the_mystery_word)
     print(" ".join(game_mystery_word))
 
-    while guesses_remaining > 0:
+    while guesses_remaining > (0):
         guess = input("Please guess a letter: ").lower()
 
-        if guess != valid_guesses or len(guess) != 1:
+        # if guess not in valid_guesses or len(guess) != 1:
+        #
+        #     print("That was not a valid guess. Please try again. ")
 
-            print("That was not a valid guess. Please try again. ")
-
-        elif guess not in guessed:
-            guess += guessed
+        if guess not in guessed:
+            guessed += guess
             user_guessed_word = " ".join(letter if letter in guessed else "_" for letter in the_mystery_word)
             # If the guessed letter is in the mystery word add it or if not continue fill blanks with "_"
             print("Mystery Word: ", user_guessed_word)
 
             for letter in guess:
-                if letter in the_mystery_word:
-                    print("{} is in your mystery word!").format(guess)
-                    print("Mystery Word: ", user_guessed_word)
-                if letter not in the_mystery_word:
-                    guesses_remaining -= 1
-                    print("Sorry, {} is not in your mystery word.").format(guess)
-                    print("Guesses Remaining: ").format(guesses_remaining)
                 if user_guessed_word == the_mystery_word:
                     print("YOU WIN!")
+                elif letter in the_mystery_word:
+                    print(guess + " is in your mystery word!")
+                    print("Mystery Word: ", user_guessed_word)
+                elif letter not in the_mystery_word:
+                    guesses_remaining -= 1
+                    print("Sorry, " + guess + " is not in your mystery word.")
+                    print(guesses_remaining)
+
+
 
         elif guess in guessed:
             print("You have already guessed that letter. Please try again.")
 
     else:
-        print("GAME OVER. Your mystery word was {}").format(the_mystery_word)
+        print("GAME OVER. Your mystery word was " + the_mystery_word.upper())
 
 if __name__ == '__main__':
     the_mystery_word = game_mode()
