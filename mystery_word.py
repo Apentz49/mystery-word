@@ -101,18 +101,18 @@ def mystery_word_game(the_mystery_word):
                         print("Thank you for playing MYSTERY WORD GAME!")
                         exit()
                 elif letter in the_mystery_word:
-                    print(guess + " is in your mystery word!")
+                    print("{} is in your mystery word!".format(guess.upper()))
                     print("Mystery Word: ", user_guessed_word)
                 elif letter not in the_mystery_word:
                     guesses_remaining -= 1
-                    print("Sorry, " + guess + " is not in your mystery word.")
+                    print("Sorry, {} is not in your mystery word.".format(guess.upper()))
                     print("You have {} guesses remaining".format(guesses_remaining))
 
         elif guess in guessed:
             print("You have already guessed that letter. Please try again.")
 
     else:
-        print("GAME OVER. Your mystery word was " + the_mystery_word.upper())
+        print("GAME OVER. Your mystery word was {}".format(the_mystery_word.upper()))
         play_again = input("Would you like to play again? Y/N?: ").lower()
 
     if play_again == 'y':
