@@ -70,7 +70,7 @@ def mystery_word_game(the_mystery_word):
     guessed = ""
     guesses_remaining = int(8)
     valid_guesses = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n',
-                     'o' 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+                     'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
     mystery_word_length = len(the_mystery_word)
 
@@ -90,8 +90,15 @@ def mystery_word_game(the_mystery_word):
             print("Mystery Word: ", user_guessed_word)
 
             for letter in guess:
-                if user_guessed_word == the_mystery_word:
+                if "_" not in user_guessed_word:
                     print("YOU WIN!")
+                    play_again = input("Would you like to play again? Y/N?: ").lower()
+                    if play_again == 'y':
+                        the_mystery_word = game_mode()
+                        mystery_word_game(the_mystery_word)
+                    else:
+                        print("Thank you for playing MYSTERY WORD GAME!")
+                        exit()
                 elif letter in the_mystery_word:
                     print(guess + " is in your mystery word!")
                     print("Mystery Word: ", user_guessed_word)
@@ -105,6 +112,13 @@ def mystery_word_game(the_mystery_word):
 
     else:
         print("GAME OVER. Your mystery word was " + the_mystery_word.upper())
+        play_again = input("Would you like to play again? Y/N?: ").lower()
+
+    if play_again == 'y':
+        the_mystery_word = game_mode()
+        mystery_word_game(the_mystery_word)
+    else:
+        print("Thank you for playing MYSTERY WORD GAME!")
 
 if __name__ == '__main__':
     the_mystery_word = game_mode()
