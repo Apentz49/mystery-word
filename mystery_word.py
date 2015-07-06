@@ -61,41 +61,8 @@ def game_mode():
             return the_mystery_word
 
         else:
-            print("That was not a valid choice. Please choose [E]asy, [M]edium, or [H]ard")
-
-
-# def easy_game(mystery_words):
-# # Generates the word for an easy mode game.
-#     with open("/usr/share/dict/words", 'r') as words:
-#
-#         dict_list = words.read()
-#
-#     mystery_words = re.findall(r"\b\w{4,6}\b", dict_list)
-#     mystery_word = random.choice(mystery_words)
-#     return mystery_word
-#
-#
-# def medium_game(mystery_words):
-# # Generates the word for a medium mode game.
-#     with open("/usr/share/dict/words", 'r') as words:
-#
-#         dict_list = words.read()
-#
-#     mystery_words = re.findall(r"\b\w{6,8}\b", dict_list)
-#     mystery_word = random.choice(mystery_words)
-#     return mystery_word
-#
-#
-# def hard_game(mystery_words):
-# # Generates the word for a hard mode game.
-#         with open("/usr/share/dict/words", 'r') as words:
-#
-#             dict_list = words.read()
-#
-#         mystery_words = re.findall(r"\b\w{8,}\b", dict_list)
-#         mystery_word = random.choice(mystery_words)
-#         return mystery_word
-
+            print("That was not a valid choice.")
+            return game_mode()
 
 
 def mystery_word_game(the_mystery_word):
@@ -142,7 +109,5 @@ def mystery_word_game(the_mystery_word):
         print("GAME OVER. Your mystery word was {}").format(the_mystery_word)
 
 if __name__ == '__main__':
-
-     mystery_word_game(the_mystery_word)
-
-
+    the_mystery_word = game_mode()
+    mystery_word_game(the_mystery_word)
