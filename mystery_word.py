@@ -35,7 +35,8 @@ import random
 
 
 def game_mode():
-    # Selects the game mode and should pull in the mystery word depending on the mode
+    """This function handles which game mode the user chooses while also giving us our random word for that mode"""
+
     users_choice = input("Please select [E]asy, [M]edium, or [H]ard: ").lower()
 
     with open("/usr/share/dict/words", 'r') as words:
@@ -66,7 +67,8 @@ def game_mode():
 
 
 def mystery_word_game(the_mystery_word):
-    # This function is running the game
+    """This function is running the game and all that it involves, other than game mode and word selection"""
+
     guessed = ""
     guesses_remaining = int(8)
     valid_guesses = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n',
